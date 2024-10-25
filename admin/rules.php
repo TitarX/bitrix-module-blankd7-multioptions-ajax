@@ -5,7 +5,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\Page\Asset;
 use Bitrix\Main\Application;
 use DigitMind\MultiOptions\Helpers\MiscHelper;
-use DigitMind\MultiOptions\Entities\OptionsTable;
+use DigitMind\MultiOptions\Entities\OptionTable;
 
 define('OPT_TECHAPPEAL_TOADDRESS', 'TECHAPPEAL_TOADDRESS');
 define('OPT_TECHAPPEAL_SUBJECT', 'TECHAPPEAL_SUBJECT');
@@ -27,7 +27,7 @@ Asset::getInstance()->addJs(MiscHelper::getAssetsPath('js') . '/main.js');
 Asset::getInstance()->addJs(MiscHelper::getAssetsPath('js') . '/rules.js');
 
 $request = Application::getInstance()->getContext()->getRequest();
-$options = OptionsTable::getData();
+$options = OptionTable::getData();
 
 if ($request->isPost()) {
     $action = $request->get('action');
@@ -49,9 +49,9 @@ if ($request->isPost()) {
 
             $queryResult = null;
             if (!empty($options[OPT_TECHAPPEAL_TOADDRESS]['ID'])) {
-                $queryResult = OptionsTable::update($options[OPT_TECHAPPEAL_TOADDRESS]['ID'], $arrParams);
+                $queryResult = OptionTable::update($options[OPT_TECHAPPEAL_TOADDRESS]['ID'], $arrParams);
             } else {
-                $queryResult = OptionsTable::add($arrParams);
+                $queryResult = OptionTable::add($arrParams);
             }
             $result = [];
             if (isset($queryResult) && $queryResult->isSuccess()) {
@@ -69,9 +69,9 @@ if ($request->isPost()) {
 
             $queryResult = null;
             if (!empty($options[OPT_TECHAPPEAL_SUBJECT]['ID'])) {
-                $queryResult = OptionsTable::update($options[OPT_TECHAPPEAL_SUBJECT]['ID'], $arrParams);
+                $queryResult = OptionTable::update($options[OPT_TECHAPPEAL_SUBJECT]['ID'], $arrParams);
             } else {
-                $queryResult = OptionsTable::add($arrParams);
+                $queryResult = OptionTable::add($arrParams);
             }
             $result = [];
             if (isset($queryResult) && $queryResult->isSuccess()) {

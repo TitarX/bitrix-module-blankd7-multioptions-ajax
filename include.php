@@ -8,7 +8,7 @@ Loader::registerAutoloadClasses(
     'digitmind.multioptions',
     [
         'DigitMind\MultiOptions\Events\MailEvents' => 'lib/events/MailEvents.php',
-        'DigitMind\MultiOptions\Entities\OptionsTable' => 'lib/entities/OptionsTable.php',
+        'DigitMind\MultiOptions\Entities\OptionTable' => 'lib/entities/OptionTable.php',
         'DigitMind\MultiOptions\Helpers\MiscHelper' => 'lib/helpers/MiscHelper.php'
     ]
 );

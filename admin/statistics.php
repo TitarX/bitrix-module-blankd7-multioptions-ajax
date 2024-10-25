@@ -5,7 +5,7 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\Page\Asset;
 use Bitrix\Main\Application;
 use DigitMind\MultiOptions\Helpers\MiscHelper;
-use DigitMind\MultiOptions\Entities\OptionsTable;
+use DigitMind\MultiOptions\Entities\OptionTable;
 
 define('OPT_MAIL_RULES_FOR_TASKS', 'MAIL_RULES_FOR_TASKS');
 
