@@ -1,11 +1,11 @@
 <?php
 
-namespace DigitMind\TaskSetter\Events;
+namespace DigitMind\MultiOptions\Events;
 
 use Bitrix\Main\Loader;
 use Bitrix\Main\Event;
 
-Loader::includeModule('digitmind.tasksetter');
+Loader::includeModule('digitmind.multioptions');
 
 class MailEvents
 {

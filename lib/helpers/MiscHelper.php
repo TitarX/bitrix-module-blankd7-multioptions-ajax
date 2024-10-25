@@ -1,6 +1,6 @@
 <?php
 
-namespace DigitMind\TaskSetter\Helpers;
+namespace DigitMind\MultiOptions\Helpers;
 
 use Bitrix\Main\Application;
 use Bitrix\Main\Config\Option;
@@ -10,7 +10,7 @@ class MiscHelper
 {
     public static function getModuleId()
     {
-        return 'digitmind.tasksetter';
+        return 'digitmind.multioptions';
     }
 
     public static function getAssetsPath($type)

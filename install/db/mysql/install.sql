@@ -1,4 +1,4 @@
-create table if not exists digitmind_tasksetter_options
+create table if not exists digitmind_multioptions_options
 (
     `ID` int not null auto_increment,
     `CODE` varchar(255) not null,

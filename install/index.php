@@ -9,15 +9,15 @@ use Bitrix\Main\IO\Directory;
 
 Loc::loadMessages(__FILE__);
 
-class digitmind_tasksetter extends CModule
+class digitmind_multioptions extends CModule
 {
     var $exclusionAdminFiles;
 
     function __construct()
     {
-        $this->MODULE_ID = 'digitmind.tasksetter';
-        $this->MODULE_NAME = Loc::getMessage('DIGITMIND_TASKSETTER_MODULE_NAME');
-        $this->MODULE_DESCRIPTION = Loc::getMessage('DIGITMIND_TASKSETTER_MODULE_DESCRIPTION');
+        $this->MODULE_ID = 'digitmind.multioptions';
+        $this->MODULE_NAME = Loc::getMessage('DIGITMIND_MULTIOPTIONS_MODULE_NAME');
+        $this->MODULE_DESCRIPTION = Loc::getMessage('DIGITMIND_MULTIOPTIONS_MODULE_DESCRIPTION');
 
         $this->PARTNER_NAME = '';
         $this->PARTNER_URI = '';
@@ -48,9 +48,9 @@ class digitmind_tasksetter extends CModule
         $errors = '';
 
         if (!ModuleManager::isModuleInstalled('mail')) {
-            $errors = Loc::getMessage('DIGITMIND_TASKSETTER_MODULE_NOT_INSTALLED_MAIL');
+            $errors = Loc::getMessage('DIGITMIND_MULTIOPTIONS_MODULE_NOT_INSTALLED_MAIL');
         } elseif (!ModuleManager::isModuleInstalled('deha.sd')) {
-            $errors = Loc::getMessage('DIGITMIND_TASKSETTER_MODULE_NOT_INSTALLED_DEHA_SD');
+            $errors = Loc::getMessage('DIGITMIND_MULTIOPTIONS_MODULE_NOT_INSTALLED_DEHA_SD');
         } else {
             $documentRoot = Application::getDocumentRoot();
             $this->copyFiles($documentRoot);
@@ -63,7 +63,7 @@ class digitmind_tasksetter extends CModule
         }
 
         $APPLICATION->IncludeAdminFile(
-            Loc::getMessage('DIGITMIND_TASKSETTER_MODULE_INSTALL'),
+            Loc::getMessage('DIGITMIND_MULTIOPTIONS_MODULE_INSTALL'),
             __DIR__ . '/step.php'
         );
     }
@@ -84,7 +84,7 @@ class digitmind_tasksetter extends CModule
         ModuleManager::unRegisterModule($this->MODULE_ID);
 
         $APPLICATION->IncludeAdminFile(
-            Loc::getMessage('DIGITMIND_TASKSETTER_MODULE_UNINSTALL'),
+            Loc::getMessage('DIGITMIND_MULTIOPTIONS_MODULE_UNINSTALL'),
             __DIR__ . '/unstep.php'
         );
     }
@@ -113,7 +113,7 @@ class digitmind_tasksetter extends CModule
 
         $documentRoot = Application::getDocumentRoot();
         $errors = $DB->RunSQLBatch(
-            "{$documentRoot}/bitrix/modules/digitmind.tasksetter/install/db/" . strtolower($DB->type) . '/install.sql'
+            "{$documentRoot}/bitrix/modules/digitmind.multioptions/install/db/" . strtolower($DB->type) . '/install.sql'
         );
         if (!empty($errors)) {
             $APPLICATION->ThrowException(implode('. ', $errors));
@@ -131,7 +131,7 @@ class digitmind_tasksetter extends CModule
 
         $documentRoot = Application::getDocumentRoot();
         $errors = $DB->RunSQLBatch(
-            "{$documentRoot}/bitrix/modules/digitmind.tasksetter/install/db/" . strtolower($DB->type) . '/uninstall.sql'
+            "{$documentRoot}/bitrix/modules/digitmind.multioptions/install/db/" . strtolower($DB->type) . '/uninstall.sql'
         );
         if (!empty($errors)) {
             $APPLICATION->ThrowException(implode('. ', $errors));
@@ -144,15 +144,15 @@ class digitmind_tasksetter extends CModule
     private function copyFiles($documentRoot)
     {
         CopyDirFiles(
-            __DIR__ . '/pages/admin/digitmind_tasksetter_rules.php',
-            "{$documentRoot}/bitrix/admin/digitmind_tasksetter_rules.php",
+            __DIR__ . '/pages/admin/digitmind_multioptions_rules.php',
+            "{$documentRoot}/bitrix/admin/digitmind_multioptions_rules.php",
             true,
             true,
             false
         );
         CopyDirFiles(
-            __DIR__ . '/pages/admin/digitmind_tasksetter_statistics.php',
-            "{$documentRoot}/bitrix/admin/digitmind_tasksetter_statistics.php",
+            __DIR__ . '/pages/admin/digitmind_multioptions_statistics.php',
+            "{$documentRoot}/bitrix/admin/digitmind_multioptions_statistics.php",
             true,
             true,
             false
@@ -165,8 +165,8 @@ class digitmind_tasksetter extends CModule
 
     private function deleteFiles()
     {
-        DeleteDirFilesEx('/bitrix/admin/digitmind_tasksetter_rules.php');
-        DeleteDirFilesEx('/bitrix/admin/digitmind_tasksetter_statistics.php');
+        DeleteDirFilesEx('/bitrix/admin/digitmind_multioptions_rules.php');
+        DeleteDirFilesEx('/bitrix/admin/digitmind_multioptions_statistics.php');
 
         DeleteDirFilesEx("/bitrix/js/{$this->MODULE_ID}");
         DeleteDirFilesEx("/bitrix/css/{$this->MODULE_ID}");
@@ -195,7 +195,7 @@ class digitmind_tasksetter extends CModule
             'mail',
             'onMailMessageNew',
             $this->MODULE_ID,
-            'DigitMind\TaskSetter\Events\MailEvents',
+            'DigitMind\MultiOptions\Events\MailEvents',
             'onMailMessageNew',
             1000
         );
@@ -207,7 +207,7 @@ class digitmind_tasksetter extends CModule
             'mail',
             'onMailMessageNew',
             $this->MODULE_ID,
-            'DigitMind\TaskSetter\Events\MailEvents',
+            'DigitMind\MultiOptions\Events\MailEvents',
             'onMailMessageNew'
         );
     }
@@ -217,7 +217,7 @@ class digitmind_tasksetter extends CModule
         return [
             "reference_id" => ['D'],
             "reference" => [
-                '[D] ' . Loc::getMessage('DIGITMIND_TASKSETTER_RIGHT_DENIED')
+                '[D] ' . Loc::getMessage('DIGITMIND_MULTIOPTIONS_RIGHT_DENIED')
             ]
         ];
     }

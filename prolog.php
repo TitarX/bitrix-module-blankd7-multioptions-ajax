@@ -1,3 +1,3 @@
 <?php
 
-define('ADMIN_MODULE_NAME', 'digitmind.tasksetter');
+define('ADMIN_MODULE_NAME', 'digitmind.multioptions');

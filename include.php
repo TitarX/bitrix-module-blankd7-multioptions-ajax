@@ -5,10 +5,10 @@ use Bitrix\Main\Loader;
 // При правильном именовании, классы подключаются автоматически
 // Имена файлов классов должны быть в нижнем регистре
 Loader::registerAutoloadClasses(
-    'digitmind.tasksetter',
+    'digitmind.multioptions',
     [
-        'DigitMind\TaskSetter\Events\MailEvents' => 'lib/events/MailEvents.php',
-        'DigitMind\TaskSetter\Entities\OptionsTable' => 'lib/entities/OptionsTable.php',
-        'DigitMind\TaskSetter\Helpers\MiscHelper' => 'lib/helpers/MiscHelper.php'
+        'DigitMind\MultiOptions\Events\MailEvents' => 'lib/events/MailEvents.php',
+        'DigitMind\MultiOptions\Entities\OptionsTable' => 'lib/entities/OptionsTable.php',
+        'DigitMind\MultiOptions\Helpers\MiscHelper' => 'lib/helpers/MiscHelper.php'
     ]
 );
