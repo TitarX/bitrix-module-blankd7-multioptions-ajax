@@ -3,5 +3,3 @@
 Опции с несколькими значениями
 
 digitmind.multioptions
-
-bitrix-module-blankd7-multioptions
